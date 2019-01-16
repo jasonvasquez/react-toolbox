@@ -35,8 +35,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('tsd', function () {
-  gulp.src('./src/components/**/*.d.ts')
+  return gulp.src('./src/components/**/*.d.ts')
     .pipe(gulp.dest('./lib'));
 });
 
-gulp.task('default', ['js', 'css', 'tsd']);
+gulp.task('default', gulp.series('js', 'css', 'tsd'));
